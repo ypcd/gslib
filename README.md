@@ -1,2 +1,2 @@
 # gslib
-A general Go language tool library.
+A general Go language library.
