@@ -10,7 +10,6 @@ import (
 
 	"github.com/ypcd/gslib/gserror"
 	"github.com/ypcd/gslib/gsrand"
-	"github.com/ypcd/gstunnel/v6/gstunnellib/gsnetconn"
 )
 
 func GetIP(conn net.Addr) string {
@@ -90,7 +89,7 @@ func NewNetConnRD(ip string) (net.Conn, net.Conn) {
 	setTcpConnKeepAlive(conna)
 	setTcpConnKeepAlive(connc)
 
-	return gsnetconn.NewGSTNetConn(conna), gsnetconn.NewGSTNetConn(connc)
+	return NewGSTNetConn(conna), NewGSTNetConn(connc)
 }
 
 func NewNetConnRDLocal() (net.Conn, net.Conn) {
@@ -129,7 +128,7 @@ func NewNetConnRDListen() (net.Conn, net.Conn, net.Listener) {
 	setTcpConnKeepAlive(conna)
 	setTcpConnKeepAlive(connc)
 
-	return gsnetconn.NewGSTNetConn(conna), gsnetconn.NewGSTNetConn(connc), lst
+	return NewGSTNetConn(conna), NewGSTNetConn(connc), lst
 }
 
 func GetNetConnAddrString(str string, conn net.Conn) string {
